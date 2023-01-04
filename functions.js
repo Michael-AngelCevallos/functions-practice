@@ -364,7 +364,23 @@ iBeforeE(‘their’) // returns ‘thier’
 iBeforeE(‘theirtheir’) // returns ‘thierthier’ */
 
 
-const iBeforeE = string => string.split("ei").join("ie");
+// const iBeforeE = string => string.split("ei").join("ie");
+
+//OR////
+
+function iBeforeE(str) {
+    let output = '';
+    for (let i = 0; i < str.length; i += 1) {
+        if (str[i] + str[i + 1] === 'ei') {
+            output += 'ie';
+            i++;
+        } else {
+            output += str[i];
+        }
+    }
+    return output;
+}
+
 
 
 console.log(iBeforeE("ei"));
@@ -372,3 +388,31 @@ console.log(iBeforeE("height"));
 console.log(iBeforeE("heist"));
 console.log(iBeforeE("their"));
 console.log(iBeforeE("theirtheir"));
+
+
+
+console.log("----- Filter List -------")
+
+// Create a function, filterList, that takes a list of non-negative integers and strings and returns a new list with the strings filtered out.
+
+
+
+
+function filterList(l) {
+    return l.filter( str => typeof str != 'string');
+}
+
+
+//OR//
+
+/// FINISH THIS
+// function filterList(input){
+//     let array= [];
+//     for(let i = 0, i < input.length; i++);{
+//
+//     }
+// }
+
+console.log(filterList([1,2,"a","b"])) // returns [1,2]
+console.log(filterList([1,"a","b",0,15])) // returns [1,0,15]
+console.log(filterList([1,2,"aasf","1","123",123])) // returns [1,2,123]
